@@ -19,14 +19,8 @@ const routes: Routes = [
     path: 'favoritos',
     loadChildren: () => import('./folder/favoritos/favoritos.module').then( m => m.FavoritosPageModule)
   },
-  {
-    path: 'login',
-    loadChildren: () => import('./folder/login/login.module').then( m => m.LoginPageModule)
-  },
-  {
-    path: 'register',
-    loadChildren: () => import('./folder/register/register.module').then( m => m.RegisterPageModule)
-  },
+  
+
   {
     path: 'vistareceta',
     loadChildren: () => import('./folder/vistareceta/vistareceta.module').then( m => m.VistarecetaPageModule)
