@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { map, Observable } from "rxjs";
-import { Person } from "../models/recetas.model";
+import { Receta } from "../models/recetas.model";
 import { Paginated } from "../models/paginated.model";
 
 export interface PaginatedRaw<T> {
@@ -14,13 +14,12 @@ export interface PaginatedRaw<T> {
     data: T[]
   };
 
-  export interface PersonRaw {
+  export interface RecetaRaw {
     id: string
     nombre: string
-    apellidos: string
-    email: string
-    genero: string
-    grupoId: string
+    ingredientes: string
+    descripcion: string
+    
 }
 @Injectable({
     providedIn:'root'
@@ -34,18 +33,15 @@ export class MyPeopleService{
 
     }
 
-    getAll(page:number, pageSize:number): Observable<Paginated<Person>> {
-        return this.http.get<PaginatedRaw<PersonRaw>>(`${this.apiUrl}/?_page=${page}&_per_page=${pageSize}`).pipe(map(res=>{
-            return {page:page, pageSize:pageSize, pages:res.pages, data:res.data.map<Person>((d:RecetaRaw)=>{
+    getAll(page:number, pageSize:number): Observable<Paginated<Receta>> {
+        return this.http.get<PaginatedRaw<RecetaRaw>>(`${this.apiUrl}/?_page=${page}&_per_page=${pageSize}`).pipe(map(res=>{
+            return {page:page, pageSize:pageSize, pages:res.pages, data:res.data.map<Receta>((d:RecetaRaw)=>{
                 return {
                     id:d.id, 
                     name:d.nombre, 
-                    surname:d.apellidos, 
-                    age:(d as any)["age"]??0,
-                    picture:(d as any)["picture"]?{
-                        large:(d as any)["picture"].large, 
-                        thumbnail:(d as any)["picture"].thumbnail
-                    }:undefined};
+                    surname:d.ingredientes,
+                    ingredientes:d.descripcion 
+                }
             })};
         }))
     }
