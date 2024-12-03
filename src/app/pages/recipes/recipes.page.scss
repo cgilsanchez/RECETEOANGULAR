@@ -1,0 +1,20 @@
+.recipes-container {
+    padding: 16px;
+}
+
+.recipe-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.add-recipe {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+}

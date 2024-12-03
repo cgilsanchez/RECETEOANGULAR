@@ -1,70 +1,134 @@
-ion-menu ion-content {
-  --background: var(--ion-item-background, var(--ion-background-color, #fff));
+/* Estilo general para el menú hamburguesa */
+ion-menu {
+  --width: 280px; /* Ancho del menú */
+  --background: #f4f5f8; /* Color de fondo del menú */
+  --border-radius: 10px; /* Bordes redondeados del menú */
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil del menú */
 }
 
-ion-menu.md ion-content {
-  --padding-start: 8px;
-  --padding-end: 8px;
-  --padding-top: 20px;
-  --padding-bottom: 20px;
+ion-menu .menu-inner {
+  border-right: 1px solid #dcdfe6; /* Línea de separación */
 }
 
-ion-menu.md ion-list {
-  padding: 20px 0;
+ion-menu ion-header {
+  --background: #ffffff; /* Fondo blanco para la cabecera del menú */
 }
 
-ion-menu.md ion-note {
-  margin-bottom: 30px;
+ion-menu ion-toolbar {
+  --background: #3b3b3b; /* Color de fondo de la barra superior del menú */
+  --color: white; /* Color de texto de la barra superior */
 }
 
-ion-menu.md ion-list-header,
-ion-menu.md ion-note {
-  padding-left: 10px;
+ion-menu ion-title {
+  font-weight: bold; /* Título en negrita */
+  font-size: 18px;
+  color: #ffffff; /* Color blanco para el título */
 }
 
-ion-menu.md ion-list#inbox-list {
-  border-bottom: 1px solid var(--ion-background-color-step-150, #d7d8da);
+/* Personalización de la lista dentro del menú */
+ion-menu .menu-inner ion-list {
+  padding: 0; /* Eliminar el padding de la lista */
 }
 
-ion-menu.md ion-list#inbox-list ion-list-header {
-  font-size: 22px;
-  font-weight: 600;
-
-  min-height: 20px;
+ion-menu md ion-item,
+ion-menu ios ion-item {
+  --background: transparent; /* Fondo transparente */
+  --border-width: 0; /* Eliminar el borde de los items */
+  --min-height: 50px; /* Asegúrate de que los items tengan una altura mínima */
 }
 
-ion-menu.md ion-list#labels-list ion-list-header {
+ion-menu .menu-inner ion-item {
+  --background: #f9f9f9; /* Color de fondo de los ítems */
+  margin: 5px 0;
+}
+
+ion-menu .menu-inner ion-item:hover {
+  --background: #e1e1e1; /* Fondo cuando el mouse pasa sobre el item */
+}
+
+ion-menu .menu-inner ion-item ion-label {
   font-size: 16px;
-
-  margin-bottom: 18px;
-
-  color: #757575;
-
-  min-height: 26px;
+  font-weight: 500;
+  color: #333; /* Color de texto de los ítems */
 }
 
-ion-menu.md ion-item {
-  --padding-start: 10px;
-  --padding-end: 10px;
-  border-radius: 4px;
+ion-menu .menu-inner ion-item ion-icon {
+  font-size: 20px; /* Tamaño de los iconos */
+  color: #5d6d7e; /* Color de los iconos */
 }
 
-ion-menu.md ion-item.selected {
+/* Estilo de los íconos cuando están seleccionados */
+ion-menu .menu-inner ion-item.selected {
+  --background: rgba(var(--ion-color-primary-rgb), 0.1);
+}
+
+ion-menu .menu-inner ion-item.selected ion-icon {
+  color: var(--ion-color-primary); /* Color de los iconos seleccionados */
+}
+
+/* Estilo para la cabecera del menú */
+ion-menu ion-header ion-toolbar {
+  --background: #3b3b3b;
+  --color: white; /* Título en blanco */
+  --border-width: 0;
+}
+
+ion-menu ion-header ion-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: white; /* Color blanco para el título */
+}
+
+/* Barra inferior de navegación */
+ion-tab-bar {
+  background-color: #3b3b3b; /* Fondo oscuro para la barra inferior */
+}
+
+ion-tab-button {
+  --color-selected: var(--ion-color-primary); /* Color de los iconos seleccionados */
+  --color: #a0a0a0; /* Color de los iconos no seleccionados */
+}
+
+ion-tab-button ion-icon {
+  font-size: 24px;
+}
+
+ion-tab-button.ion-selected {
+  --color: var(--ion-color-primary); /* Iconos seleccionados en color primario */
+}
+
+/* Ajuste para los iconos de la barra de navegación inferior */
+ion-tab-button ion-icon {
+  font-size: 24px; /* Tamaño de los iconos en la barra inferior */
+  color: #5d6d7e; /* Color de los iconos no seleccionados */
+}
+
+ion-tab-button.ion-selected {
+  --color: var(--ion-color-primary); /* Color de los iconos seleccionados */
+}
+
+/* Estilo para los items de la lista en el menú */
+ion-menu md ion-item,
+ion-menu ios ion-item {
+  --background: transparent;
+  --border-width: 0;
+  --min-height: 50px;
+  --border-radius: 4px;
+  margin: 5px 0;
+}
+
+/* Estilo para la selección de los ítems */
+ion-menu md ion-item.selected {
   --background: rgba(var(--ion-color-primary-rgb), 0.14);
 }
 
-ion-menu.md ion-item.selected ion-icon {
-  color: var(--ion-color-primary);
+/* Reglas generales para los íconos */
+ion-menu .menu-inner ion-item ion-icon {
+  font-size: 24px;
+  color: #5d6d7e;
 }
 
-ion-menu.md ion-item ion-icon {
-  color: #616e7e;
-}
-
-ion-menu.md ion-item ion-label {
-  font-weight: 500;
-}
-
+/* Menú de navegación cuando está abierto */
 ion-menu.ios ion-content {
   --padding-bottom: 20px;
 }
@@ -73,47 +137,18 @@ ion-menu.ios ion-list {
   padding: 20px 0 0 0;
 }
 
-ion-menu.ios ion-note {
-  line-height: 24px;
-  margin-bottom: 20px;
-}
-
 ion-menu.ios ion-item {
   --padding-start: 16px;
   --padding-end: 16px;
   --min-height: 50px;
 }
 
+/* Estilo para el título del menú */
+ion-menu.ios ion-title {
+  font-weight: bold;
+  color: #ffffff;
+}
+
 ion-menu.ios ion-item.selected ion-icon {
   color: var(--ion-color-primary);
-}
-
-ion-menu.ios ion-item ion-icon {
-  font-size: 24px;
-  color: #73849a;
-}
-
-ion-menu.ios ion-list#labels-list ion-list-header {
-  margin-bottom: 8px;
-}
-
-ion-menu.ios ion-list-header,
-ion-menu.ios ion-note {
-  padding-left: 16px;
-  padding-right: 16px;
-}
-
-ion-menu.ios ion-note {
-  margin-bottom: 8px;
-}
-
-ion-note {
-  display: inline-block;
-  font-size: 16px;
-
-  color: var(--ion-color-medium-shade);
-}
-
-ion-item.selected {
-  --color: var(--ion-color-primary);
 }

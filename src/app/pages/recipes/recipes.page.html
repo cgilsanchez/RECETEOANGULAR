@@ -1,0 +1,13 @@
+<div class="recipes-container">
+  <h2>Recetas</h2>
+  <div class="recipe-card" *ngFor="let recipe of recipes" (click)="goToRecipeDetails(recipe.id)">
+    <h3>{{ recipe.name }}</h3>
+    <button mat-icon-button color="warn" (click)="toggleFavorite(recipe)">
+      <mat-icon>{{ recipe.favorite ? 'star' : 'star_border' }}</mat-icon>
+    </button>
+  </div>
+
+  <button mat-fab color="primary" class="add-recipe" (click)="addRecipe()">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>

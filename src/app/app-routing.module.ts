@@ -2,37 +2,36 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  {
-    path: '',
-    redirectTo: 'folder/Inbox',
-    pathMatch: 'full'
-  },
-  {
-    path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
-  },
-  {
-    path: 'recetas',
-    loadChildren: () => import('./folder/home/recetas.module').then( m => m.RecetasPageModule)
-  },
-  {
-    path: 'favoritos',
-    loadChildren: () => import('./folder/favoritos/favoritos.module').then( m => m.FavoritosPageModule)
-  },
-  
 
   {
-    path: 'vistareceta',
-    loadChildren: () => import('./folder/vistareceta/vistareceta.module').then( m => m.VistarecetaPageModule)
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: 'addreceta',
-    loadChildren: () => import('./folder/addreceta/addreceta.module').then( m => m.AddrecetaPageModule)
+    path: 'register',
+    loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
   },
   {
-    path: 'cocineros',
-    loadChildren: () => import('./folder/cocineros/cocineros.module').then( m => m.CocinerosPageModule)
+    path: 'favorites',
+    loadChildren: () => import('./pages/favorites/favorites.module').then( m => m.FavoritesPageModule)
+  },
+  {
+    path: 'cooks',
+    loadChildren: () => import('./pages/cooks/cooks.module').then( m => m.CooksPageModule)
+  },
+  {
+    path: 'recipes',
+    loadChildren: () => import('./pages/recipes/recipes.module').then( m => m.RecipesPageModule)
+  },
+
+  {
+    path: 'recipe-details/:id',
+    loadChildren: () => import('./pages/recipe-details/recipe-details.module').then( m => m.RecipeDetailsPageModule)
   }
+  
+
+
+
 ];
 
 @NgModule({

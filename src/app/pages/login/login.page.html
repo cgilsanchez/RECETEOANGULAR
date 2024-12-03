@@ -1,0 +1,23 @@
+<div class="login-container">
+  <h2>Iniciar Sesión</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Correo</mat-label>
+      <input matInput formControlName="email" type="email" />
+      <mat-error *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+        Introduce un correo válido.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Contraseña</mat-label>
+      <input matInput formControlName="password" type="password" />
+      <mat-error *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+        La contraseña debe tener al menos 6 caracteres.
+      </mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" [disabled]="loginForm.invalid">Iniciar Sesión</button>
+  </form>
+  <p>¿No tienes cuenta? <a routerLink="/register">Regístrate aquí</a></p>
+</div>
